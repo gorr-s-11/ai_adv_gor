@@ -1,0 +1,29 @@
+.sparkles-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.sparkle-burst {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.sparkle-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sparkle-color);
+  box-shadow: 0 0 12px 3px var(--sparkle-color);
+  transform: rotate(var(--angle)) translateX(0);
+  opacity: 0;
+  animation: sparkleFly 1.2s ease-out forwards;
+}
+
+@keyframes sparkleFly {
+  0%   { transform: rotate(var(--angle)) translateX(0)     scale(1);   opacity: 1; }
+  100% { transform: rotate(var(--angle)) translateX(120px) scale(0.2); opacity: 0; }
+}
