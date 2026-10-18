@@ -1,0 +1,78 @@
+/* [project]/src/app/home/components/Button/Button.css.css [app-client] (css) */
+@keyframes btnBob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes sparkleSweep {
+  0%, 55% {
+    left: -120%;
+  }
+
+  80% {
+    left: 120%;
+  }
+
+  100% {
+    left: 120%;
+  }
+}
+
+.btn-magic {
+  font-family: var(--font-ui);
+  letter-spacing: .5px;
+  color: #2a1a4a;
+  cursor: pointer;
+  background: linear-gradient(135deg, #fff3c4 0%, #ffc93c 55%, #ff9e2c 100%);
+  border: none;
+  border-radius: 999px;
+  margin-top: 12px;
+  padding: 18px 46px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  transition: transform .2s, box-shadow .2s;
+  animation: 3.5s ease-in-out infinite btnBob, 2.4s ease-in-out infinite btnGlow;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px #a86b12, 0 22px 40px #ffc93c73, 0 0 80px #ffe9a88c;
+}
+
+@keyframes btnGlow {
+  0%, 100% {
+    box-shadow: 0 10px #a86b12, 0 22px 40px #ffc93c73, 0 0 80px #ffe9a88c;
+  }
+
+  50% {
+    box-shadow: 0 10px #a86b12, 0 22px 40px #ffc93cb3, 0 0 120px #ffe9a8e6;
+  }
+}
+
+.btn-magic:before {
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(120deg, #0000, #ffffffd9, #0000);
+  width: 60%;
+  height: 100%;
+  animation: 3s ease-in-out infinite sparkleSweep;
+  position: absolute;
+  top: 0;
+  left: -120%;
+  transform: skewX(-20deg);
+}
+
+.btn-magic:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 14px #a86b12, 0 28px 50px #ffc93cb3, 0 0 150px #ffe9a8;
+}
+
+.btn-magic:active {
+  transform: translateY(4px);
+  box-shadow: 0 4px #a86b12, 0 10px 20px #ffc93c59;
+}
+
+/*# sourceMappingURL=src_app_home_components_Button_Button_css_css_1igg3k2-ikub5._.single.css.map*/

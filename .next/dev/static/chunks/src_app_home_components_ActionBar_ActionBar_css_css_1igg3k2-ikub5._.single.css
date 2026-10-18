@@ -1,0 +1,134 @@
+/* [project]/src/app/home/components/ActionBar/ActionBar.css.css [app-client] (css) */
+.action-bar {
+  z-index: 7;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 28px;
+  display: flex;
+  position: relative;
+}
+
+.action-btn {
+  font-family: var(--font-ui);
+  color: #fff;
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  background: #ffffff14;
+  border: 2px solid #ffffff40;
+  border-radius: 999px;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  font-size: .95rem;
+  font-weight: 700;
+  transition: transform .25s, box-shadow .25s, background .25s;
+  display: inline-flex;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 20px #0000004d;
+}
+
+.action-btn:before {
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(120deg, #0000, #fff6, #0000);
+  width: 80%;
+  height: 100%;
+  animation: 4s ease-in-out infinite btnShine;
+  position: absolute;
+  top: 0;
+  left: -120%;
+  transform: skewX(-20deg);
+}
+
+@keyframes btnShine {
+  0%, 60% {
+    left: -120%;
+  }
+
+  80% {
+    left: 120%;
+  }
+
+  100% {
+    left: 120%;
+  }
+}
+
+.action-icon {
+  font-size: 1.2rem;
+  animation: 2.8s ease-in-out infinite iconBob;
+  display: inline-block;
+}
+
+@keyframes iconBob {
+  0%, 100% {
+    transform: translateY(0) rotate(0);
+  }
+
+  50% {
+    transform: translateY(-3px) rotate(8deg);
+  }
+}
+
+.action-btn--purple:hover {
+  background: linear-gradient(135deg, #b06aff, #6a2d9e);
+  border-color: #b06aff;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 30px #b06aff99, 0 0 40px #b06aff66;
+}
+
+.action-btn--gold:hover {
+  color: #2a1a4a;
+  background: linear-gradient(135deg, #ffe9a8, #ffc93c);
+  border-color: #ffe9a8;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 30px #ffc93cb3, 0 0 50px #ffe9a880;
+}
+
+.action-btn--mint:hover {
+  background: linear-gradient(135deg, #4ee5c8, #22b8a0);
+  border-color: #4ee5c8;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 30px #4ee5c899, 0 0 40px #4ee5c866;
+}
+
+.action-btn--pink:hover {
+  background: linear-gradient(135deg, #ff6bd6, #ff5e9c);
+  border-color: #ff6bd6;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 30px #ff6bd699, 0 0 40px #ff6bd666;
+}
+
+.gift-shine {
+  pointer-events: none;
+  background: radial-gradient(circle, #fff3c4 0%, #0000 70%);
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.action-btn--gold.is-open .gift-shine {
+  animation: 1.2s ease-out giftBurst;
+}
+
+@keyframes giftBurst {
+  0% {
+    opacity: 1;
+    width: 0;
+    height: 0;
+  }
+
+  100% {
+    opacity: 0;
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/*# sourceMappingURL=src_app_home_components_ActionBar_ActionBar_css_css_1igg3k2-ikub5._.single.css.map*/

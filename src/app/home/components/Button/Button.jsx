@@ -1,17 +1,17 @@
 "use client";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
 import "./Button.css";
 
 export const CreateButton = ({ text = "Begin Your Tale" }) => {
-  const [on, setOn] = useState(false);
+  const router = useRouter();
 
   return (
     <button
       className="btn-magic"
       type="button"
-      onClick={() => setOn((p) => !p)}
+      onClick={() => router.push("/create")}
     >
-      {on ? "✦ Story Begins ✦" : text}
+      {text}
     </button>
   );
 };
