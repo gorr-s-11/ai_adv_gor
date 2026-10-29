@@ -1,0 +1,132 @@
+/* [project]/src/app/home/header.css.css [app-client] (css) */
+.header {
+  z-index: 30;
+  -webkit-backdrop-filter: blur(14px);
+  background: #0a0a0fd9;
+  border-bottom: 1px solid #ffe9a826;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 36px;
+  display: flex;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 8px 40px #0000008c;
+}
+
+.logo {
+  font-family: var(--font-ui);
+  color: #fff;
+  text-shadow: 0 0 18px #ffe9a899;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+}
+
+.logo-mark {
+  background: radial-gradient(circle at 35% 35%, #fffbe0, #ffc93c 70%, #ff9e2c);
+  border-radius: 50%;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  font-size: 1.3rem;
+  animation: 3.2s ease-in-out infinite logoPulse;
+  display: grid;
+  box-shadow: 0 0 24px #ffc93cd9, 0 0 60px #ffc93c80;
+}
+
+@keyframes logoPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 24px #ffc93cd9, 0 0 60px #ffc93c80;
+  }
+
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 34px #ffc93c, 0 0 90px #ffc93cbf;
+  }
+}
+
+.nav {
+  align-items: center;
+  gap: 26px;
+  padding-top: 16px;
+  display: flex;
+}
+
+.nav a {
+  color: #1a0f30;
+  font-family: var(--font-ui);
+  letter-spacing: .3px;
+  transform-origin: top;
+  background: #fff;
+  border-radius: 6px 6px 0 0;
+  padding: 10px 22px;
+  font-size: .98rem;
+  font-weight: 700;
+  transition: filter .25s, transform .25s;
+  animation: 3.5s ease-in-out infinite bannerSway;
+  position: relative;
+  box-shadow: 0 6px #00000040, 0 12px 24px #0000004d;
+}
+
+.nav a:after {
+  content: "";
+  background: inherit;
+  clip-path: polygon(0 0, 8% 100%, 16% 0, 24% 100%, 32% 0, 40% 100%, 48% 0, 56% 100%, 64% 0, 72% 100%, 80% 0, 88% 100%, 96% 0, 100% 100%, 100% 0);
+  filter: brightness(.8);
+  height: 10px;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+}
+
+.nav a:before {
+  content: "";
+  background: #ffe9a88c;
+  width: 1px;
+  height: 16px;
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes bannerSway {
+  0%, 100% {
+    transform: rotate(-1.2deg);
+  }
+
+  50% {
+    transform: rotate(1.2deg);
+  }
+}
+
+.nav a:hover {
+  filter: brightness(1.15);
+  transform: translateY(-3px) rotate(0) scale(1.05);
+}
+
+@media (max-width: 720px) {
+  .header {
+    flex-direction: column;
+    gap: 14px;
+    padding: 14px 18px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    padding-top: 14px;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+}
+
+/*# sourceMappingURL=src_app_home_header_css_css_1igg3k2-ikub5._.single.css.map*/

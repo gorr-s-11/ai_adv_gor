@@ -1,0 +1,340 @@
+/* ============================================================
+   TALE FORM — Ultimate Magic Edition
+   ============================================================ */
+
+.tale-form {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 40px auto 0;
+  padding: 45px 40px;
+  border-radius: 32px;
+  
+  /* ✅ Ապակե (Glassmorphism) էֆեկտ */
+  background: rgba(10, 5, 25, 0.6);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  
+  /* ✅ Փայլող կախարդական սահման */
+  border: 1.5px solid rgba(255, 233, 168, 0.25);
+  
+  /* ✅ Խորը ստվեր և ներքին լույս */
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.9),
+    0 0 100px rgba(176, 106, 255, 0.15),
+    inset 0 0 60px rgba(176, 106, 255, 0.05);
+    
+  z-index: 10;
+  animation: formGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes formGlow {
+  0% { box-shadow: 0 30px 80px rgba(0,0,0,0.9), 0 0 60px rgba(176,106,255,0.1), inset 0 0 60px rgba(176,106,255,0.05); }
+  100% { box-shadow: 0 30px 80px rgba(0,0,0,0.9), 0 0 120px rgba(255,201,60,0.2), inset 0 0 60px rgba(255,201,60,0.1); }
+}
+
+/* ============================================================
+   STEP TRACKER — Քայլերի ցուցիչ
+   ============================================================ */
+.step-track {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  padding: 0 10px;
+  gap: 8px;
+}
+
+.step-progress {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  height: 3px;
+  /* ✅ Կրակոտ գրադիենտ */
+  background: linear-gradient(90deg, #ff6bd6, #b06aff, #4ee5c8);
+  box-shadow: 0 0 15px rgba(176, 106, 255, 0.8);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+  border-radius: 2px;
+}
+
+.step-item {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.step-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  color: #fff;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+}
+
+.step-item.active .step-circle {
+  background: linear-gradient(135deg, #ffe9a8, #ffc93c);
+  color: #1a0f30;
+  border-color: #fff;
+  box-shadow: 0 0 30px rgba(255, 201, 60, 0.8), inset 0 0 10px rgba(255, 255, 255, 0.5);
+  transform: scale(1.15);
+}
+
+.step-item.completed .step-circle {
+  background: linear-gradient(135deg, #b06aff, #4ee5c8);
+  border-color: #4ee5c8;
+  box-shadow: 0 0 20px rgba(78, 229, 200, 0.6);
+}
+
+.step-label {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.step-item.active .step-label {
+  color: #ffe9a8;
+  text-shadow: 0 0 10px rgba(255, 233, 168, 0.5);
+}
+
+/* ============================================================
+   FORM BODY — Դաշտեր
+   ============================================================ */
+.form-body {
+  min-height: 240px;
+  margin-bottom: 35px;
+}
+
+.form-step {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: stepFade 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes stepFade {
+  from { opacity: 0; transform: translateY(15px); filter: blur(5px); }
+  to   { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.form-label {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  color: #ffe9a8;
+  text-shadow: 0 0 20px rgba(255, 233, 168, 0.4);
+  margin-bottom: 5px;
+}
+
+.form-hint {
+  font-size: 0.95rem;
+  color: #b8a9ff;
+  font-style: italic;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* ✅ Կախարդական Inputs */
+.form-input {
+  width: 100%;
+  padding: 18px 24px;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.form-input:focus {
+  border-color: #ffc93c;
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 
+    inset 0 4px 15px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(255, 201, 60, 0.3),
+    0 0 0 4px rgba(255, 201, 60, 0.1);
+  transform: translateY(-2px);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 160px;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   GENRE CHIPS — Ժանրեր
+   ============================================================ */
+.genre-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+.genre-chip {
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2d9ff;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+}
+
+.genre-chip:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 201, 60, 0.5);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.genre-chip.selected {
+  background: linear-gradient(135deg, #b06aff, #ff6bd6);
+  border-color: #fff;
+  color: #fff;
+  box-shadow: 
+    0 10px 30px rgba(176, 106, 255, 0.6),
+    0 0 40px rgba(255, 107, 214, 0.4),
+    inset 0 0 20px rgba(255,255,255,0.3);
+  transform: translateY(-4px) scale(1.05);
+  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+/* ============================================================
+   NAVIGATION BUTTONS — Կոճակներ
+   ============================================================ */
+.form-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 10px;
+}
+
+.btn-secondary,
+.btn-next,
+.btn-submit {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 16px 32px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  letter-spacing: 0.5px;
+}
+
+/* ✅ Back կոճակ (Ապակե) */
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: #b8a9ff;
+  border: 1.5px solid rgba(184, 169, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* ✅ Next & Submit կոճակներ (Ոսկե կրակ) */
+.btn-next,
+.btn-submit {
+  margin-left: auto;
+  background: linear-gradient(135deg, #ffe9a8, #ffc93c, #ff9e2c);
+  background-size: 200% auto;
+  color: #1a0f30;
+  box-shadow:
+    0 8px 0 #a86b12,
+    0 15px 30px rgba(255, 201, 60, 0.4),
+    0 0 50px rgba(255, 201, 60, 0.2);
+  animation: btnPulseGold 3s ease-in-out infinite;
+}
+
+@keyframes btnPulseGold {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.btn-next:hover,
+.btn-submit:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow:
+    0 13px 0 #a86b12,
+    0 25px 50px rgba(255, 201, 60, 0.6),
+    0 0 80px rgba(255, 201, 60, 0.4);
+}
+
+.btn-submit:active,
+.btn-next:active {
+  transform: translateY(4px) scale(0.98);
+  box-shadow: 0 4px 0 #a86b12, 0 10px 20px rgba(255, 201, 60, 0.4);
+}
+
+.btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  animation: none;
+  filter: grayscale(0.5);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px) {
+  .tale-form {
+    padding: 30px 20px;
+    border-radius: 24px;
+  }
+  
+  .step-label {
+    font-size: 0.6rem;
+  }
+  
+  .step-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+  
+  .form-label {
+    font-size: 1.5rem;
+  }
+  
+  .btn-secondary,
+  .btn-next,
+  .btn-submit {
+    padding: 14px 24px;
+    font-size: 0.95rem;
+  }
+}

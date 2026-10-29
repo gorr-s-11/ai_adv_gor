@@ -1,0 +1,191 @@
+/* [project]/src/app/adventures/adventures.css.css [app-client] (css) */
+.adventures-page {
+  color: #fff;
+  min-height: 100vh;
+  font-family: var(--font-body, "Nunito", sans-serif);
+  background: #000 radial-gradient(circle at 50% 0, #1a0f30 0%, #0000 60%);
+  padding: 40px 20px;
+}
+
+.adventures-header {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto 50px;
+}
+
+.back-home {
+  color: #fff9;
+  font-family: var(--font-ui, "Fredoka", sans-serif);
+  margin-bottom: 20px;
+  text-decoration: none;
+  transition: color .3s;
+  display: inline-block;
+}
+
+.back-home:hover {
+  color: #ffe9a8;
+}
+
+.page-title {
+  font-family: var(--font-title, "Caveat", cursive);
+  color: #ffe9a8;
+  text-shadow: 0 0 20px #ffc93c80;
+  margin: 0 0 10px;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+.page-subtitle {
+  color: #b8a9ff;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.empty-state {
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 80px;
+  display: flex;
+}
+
+.empty-icon {
+  opacity: .5;
+  margin-bottom: 10px;
+  font-size: 5rem;
+}
+
+.empty-state h2 {
+  font-family: var(--font-title, "Caveat", cursive);
+  color: #ffe9a8;
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.empty-state p {
+  color: #b8a9ff;
+  margin: 0 0 20px;
+  font-size: 1.1rem;
+}
+
+.stories-grid {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+}
+
+.story-card {
+  background: #fdf6e3;
+  border-radius: 12px;
+  flex-direction: column;
+  transition: transform .3s, box-shadow .3s;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0 10px 30px #0009;
+}
+
+.story-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px #ffc93c4d;
+}
+
+.card-cover {
+  text-align: center;
+  background: linear-gradient(135deg, #2a0a5a, #120a24);
+  border-bottom: 3px solid #ffc93c;
+  padding: 30px 20px;
+}
+
+.card-cover h3 {
+  font-family: var(--font-title, "Caveat", cursive);
+  color: #ffe9a8;
+  margin: 0 0 8px;
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.card-genre {
+  color: #ffc93c;
+  font-size: .8rem;
+  font-family: var(--font-ui, "Fredoka", sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #ffc93c33;
+  border-radius: 999px;
+  padding: 4px 12px;
+  display: inline-block;
+}
+
+.card-body {
+  color: #2a1a4a;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  display: flex;
+}
+
+.card-hero, .card-world {
+  margin: 0 0 10px;
+  font-size: .95rem;
+  font-weight: 600;
+}
+
+.card-date {
+  color: #888;
+  margin-top: auto;
+  margin-bottom: 15px;
+  font-size: .8rem;
+}
+
+.read-btn {
+  text-align: center;
+  color: #fff;
+  font-family: var(--font-ui, "Fredoka", sans-serif);
+  background: #6a2d9e;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .3s;
+  display: block;
+}
+
+.read-btn:hover {
+  background: #b06aff;
+  box-shadow: 0 4px 15px #b06aff66;
+}
+
+.btn-magic {
+  font-family: var(--font-ui, "Fredoka", sans-serif);
+  color: #000;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ffe9a8, #ffc93c);
+  border: none;
+  border-radius: 999px;
+  padding: 16px 42px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .2s;
+  display: inline-block;
+  box-shadow: 0 8px #a86b12, 0 15px 30px #ffc93c4d;
+}
+
+.btn-magic:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px #a86b12, 0 20px 40px #ffc93c80;
+}
+
+@media (max-width: 600px) {
+  .stories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .adventures-page {
+    padding: 30px 15px;
+  }
+}
+
+/*# sourceMappingURL=src_app_adventures_adventures_css_1mzkht3rp84dl.css.map*/

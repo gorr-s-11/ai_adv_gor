@@ -1,0 +1,262 @@
+
+.story-page {
+  min-height: 100vh;
+  background: #000000;
+  background-image: radial-gradient(circle at 50% 0%, #1a0f30 0%, transparent 60%);
+  color: #fff;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-body, 'Nunito', sans-serif);
+  overflow-x: hidden;
+}
+
+/* ==== Loading Screen ==== */
+.loading-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  color: #ffc93c;
+  font-family: var(--font-title, 'Caveat', cursive);
+  font-size: 2.5rem;
+  animation: pulseText 2s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.05); }
+}
+
+/* ==== Back Link ==== */
+.back-link {
+  align-self: flex-start;
+  margin-left: 5%;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  margin-bottom: 20px;
+  font-family: var(--font-ui, 'Fredoka', sans-serif);
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  color: #ffe9a8;
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(-4px);
+}
+
+/* ==== Story Container ==== */
+.story-container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  z-index: 10;
+}
+
+/* ==== Magic Book ==== */
+.magic-book {
+  width: 100%;
+  background: #fdf6e3; /* Գրքի թղթի գույն */
+  border-radius: 16px;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.8),
+    0 0 100px rgba(255, 201, 60, 0.15);
+  overflow: hidden;
+  animation: bookOpen 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform-origin: center;
+}
+
+@keyframes bookOpen {
+  0%   { transform: scale(0.9) translateY(30px) rotateX(10deg); opacity: 0; }
+  100% { transform: scale(1) translateY(0) rotateX(0); opacity: 1; }
+}
+
+/* ==== Book Cover (Header of the book) ==== */
+.book-cover {
+  background: linear-gradient(135deg, #2a0a5a, #120a24);
+  padding: 40px 30px;
+  text-align: center;
+  border-bottom: 4px solid #ffc93c;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Փոքր աստղեր գրքի կազմին */
+.book-cover::before {
+  content: '✦';
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  color: rgba(255, 233, 168, 0.4);
+  font-size: 1.2rem;
+}
+.book-cover::after {
+  content: '✦';
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  color: rgba(255, 233, 168, 0.4);
+  font-size: 1.2rem;
+}
+
+.story-title {
+  font-family: var(--font-title, 'Caveat', cursive);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: #ffe9a8;
+  margin: 0 0 12px 0;
+  text-shadow: 0 0 25px rgba(255, 201, 60, 0.6);
+  line-height: 1.1;
+}
+
+.story-meta {
+  color: #b8a9ff;
+  font-family: var(--font-ui, 'Fredoka', sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* ==== Book Pages (Text area) ==== */
+.book-pages {
+  padding: 50px;
+  color: #2a1a4a;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  max-height: 50vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* Գեղեցիկ Scrollbar */
+.book-pages::-webkit-scrollbar {
+  width: 8px;
+}
+.book-pages::-webkit-scrollbar-track {
+  background: rgba(217, 201, 160, 0.2);
+}
+.book-pages::-webkit-scrollbar-thumb {
+  background: #d9c9a0;
+  border-radius: 4px;
+}
+
+.book-pages p {
+  margin-bottom: 20px;
+  text-indent: 30px; 
+}
+
+/* Drop Cap էֆեկտ առաջին տառի համար */
+.book-pages p:first-child::first-letter {
+  font-family: var(--font-title, 'Caveat', cursive);
+  font-size: 4.5rem;
+  float: left;
+  line-height: 0.8;
+  padding-right: 12px;
+  padding-top: 6px;
+  color: #6a2d9e; 
+}
+
+/* ==== Book Controls (Page turn buttons) ==== */
+.book-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px 40px;
+  border-top: 2px dashed rgba(42, 26, 74, 0.15);
+  background: #fdf6e3;
+}
+
+.page-btn {
+  background: transparent;
+  border: none;
+  color: #6a2d9e;
+  font-family: var(--font-ui, 'Fredoka', sans-serif);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+  color: #2a1a4a;
+  background: rgba(106, 45, 158, 0.08);
+  transform: scale(1.05);
+}
+
+.page-btn:disabled {
+  color: rgba(42, 26, 74, 0.25);
+  cursor: not-allowed;
+}
+
+.page-indicator {
+  font-family: var(--font-title, 'Caveat', cursive);
+  font-size: 1.6rem;
+  color: #2a1a4a;
+  font-weight: 700;
+}
+
+/* ==== Main Action Button (Write Another Tale) ==== */
+.btn-magic {
+  font-family: var(--font-ui, 'Fredoka', sans-serif);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #000;
+  padding: 16px 42px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffe9a8, #ffc93c);
+  cursor: pointer;
+  box-shadow: 
+    0 8px 0 #a86b12, 
+    0 15px 30px rgba(255, 201, 60, 0.3),
+    0 0 50px rgba(255, 201, 60, 0.2);
+  transition: all 0.25s ease;
+  margin-top: 10px;
+}
+
+.btn-magic:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 12px 0 #a86b12, 
+    0 20px 40px rgba(255, 201, 60, 0.5),
+    0 0 80px rgba(255, 201, 60, 0.4);
+}
+
+.btn-magic:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 #a86b12;
+}
+
+/* ==== Responsive (Mobile) ==== */
+@media (max-width: 600px) {
+  .story-container {
+    padding: 0 10px;
+  }
+  
+  .book-pages {
+    padding: 30px 20px;
+    font-size: 1rem;
+  }
+  
+  .book-controls {
+    padding: 15px 20px 25px;
+  }
+  
+  .story-title {
+    font-size: 2.2rem;
+  }
+  
+  .page-indicator {
+    font-size: 1.3rem;
+  }
+}

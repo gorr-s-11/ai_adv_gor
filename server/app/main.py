@@ -1,24 +1,33 @@
-from fastapi import FastAPI
-from app.schemas import StoryRequest
+import logging
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from app.schemas import GeneratedStory, StoryRequest
 from app.services.gemini import generate_story
 
+logger = logging.getLogger(__name__)
 
-app=FastAPI()
+app = FastAPI()
+
+# ✅ Թարմացված CORS-ը
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def root():
     return {"message": "AI Adventure API is running!"}
 
-@app.post("/create")
-def create_story(story: StoryRequest):
-    generated_story=generate_story(
-        characterName=story.characterName,
-        genre=story.genre,
-        world=story.world,
-        description=story.description,
-        steps=story.steps,
-    )
-    return{
-        "message": "story created!",
-        "story":generated_story
-    }
+@app.post("/create", response_model=GeneratedStory)
+def create_story(payload: StoryRequest):
+    try:
+        return generate_story(payload)
+    except Exception as e:
+        logger.exception(f"Gemini story generation failed: {e}")
+        raise HTTPException(
+            status_code=502,
+            detail="Could not generate the story. Check the backend terminal for details."
+        ) from e

@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@500;700&family=Nunito:wght@400;600;800&display=swap');
+
+:root {
+  /* Մուգ, կախարդական երանգներ */
+  --sky-1: #000000;         /* Մաքուր սև */
+  --sky-2: #0a0a0f;         /* Գրեթե սև */
+  --sky-3: #120a24;         /* Շատ մուգ մանուշակագույն */
+  --sky-4: #1a0f30;         /* Մուգ մանուշակագույն */
+
+  --aurora-1: #4ee5c8;
+  --aurora-2: #b06aff;
+  --aurora-3: #ff6bd6;
+
+  --gold: #ffc93c;
+  --pink: #ff5e9c;
+  --mint: #4ee5c8;
+  --lavender: #b8a9ff;
+
+  --glow-gold: #ffe9a8;
+
+  --page: #fdf6e3;
+  --page-edge: #d9c9a0;
+  --ink: #2a1a4a;
+
+  --font-title: 'Caveat', cursive;
+  --font-ui: 'Fredoka', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #000000; /* ✅ Սև ֆոն ամբողջ կայքում */
+  color: #f4ecff;
+  font-family: var(--font-body);
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

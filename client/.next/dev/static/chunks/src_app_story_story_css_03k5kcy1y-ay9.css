@@ -1,0 +1,260 @@
+/* [project]/src/app/story/story.css.css [app-client] (css) */
+.story-page {
+  color: #fff;
+  min-height: 100vh;
+  font-family: var(--font-body, "Nunito", sans-serif);
+  background: #000 radial-gradient(circle at 50% 0, #1a0f30 0%, #0000 60%);
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  display: flex;
+  overflow-x: hidden;
+}
+
+.loading-screen {
+  color: #ffc93c;
+  min-height: 100vh;
+  font-family: var(--font-title, "Caveat", cursive);
+  background: #000;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  animation: 2s ease-in-out infinite pulseText;
+  display: flex;
+}
+
+@keyframes pulseText {
+  0%, 100% {
+    opacity: .7;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.back-link {
+  color: #fff9;
+  font-family: var(--font-ui, "Fredoka", sans-serif);
+  border-radius: 8px;
+  align-self: flex-start;
+  margin-bottom: 20px;
+  margin-left: 5%;
+  padding: 8px 16px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all .3s;
+}
+
+.back-link:hover {
+  color: #ffe9a8;
+  background: #ffffff0d;
+  transform: translateX(-4px);
+}
+
+.story-container {
+  z-index: 10;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+}
+
+.magic-book {
+  transform-origin: center;
+  background: #fdf6e3;
+  border-radius: 16px;
+  width: 100%;
+  animation: 1s cubic-bezier(.2, .8, .2, 1) forwards bookOpen;
+  overflow: hidden;
+  box-shadow: 0 20px 50px #000c, 0 0 100px #ffc93c26;
+}
+
+@keyframes bookOpen {
+  0% {
+    opacity: 0;
+    transform: scale(.9) translateY(30px) rotateX(10deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotateX(0);
+  }
+}
+
+.book-cover {
+  text-align: center;
+  background: linear-gradient(135deg, #2a0a5a, #120a24);
+  border-bottom: 4px solid #ffc93c;
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.book-cover:before {
+  content: "✦";
+  color: #ffe9a866;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 15px;
+  left: 20px;
+}
+
+.book-cover:after {
+  content: "✦";
+  color: #ffe9a866;
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+}
+
+.story-title {
+  font-family: var(--font-title, "Caveat", cursive);
+  color: #ffe9a8;
+  text-shadow: 0 0 25px #ffc93c99;
+  margin: 0 0 12px;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.1;
+}
+
+.story-meta {
+  color: #b8a9ff;
+  font-family: var(--font-ui, "Fredoka", sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0;
+  font-size: .85rem;
+}
+
+.book-pages {
+  color: #2a1a4a;
+  scroll-behavior: smooth;
+  max-height: 50vh;
+  padding: 50px;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  overflow-y: auto;
+}
+
+.book-pages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.book-pages::-webkit-scrollbar-track {
+  background: #d9c9a033;
+}
+
+.book-pages::-webkit-scrollbar-thumb {
+  background: #d9c9a0;
+  border-radius: 4px;
+}
+
+.book-pages p {
+  text-indent: 30px;
+  margin-bottom: 20px;
+}
+
+.book-pages p:first-child:first-letter {
+  font-family: var(--font-title, "Caveat", cursive);
+  float: left;
+  color: #6a2d9e;
+  padding-top: 6px;
+  padding-right: 12px;
+  font-size: 4.5rem;
+  line-height: .8;
+}
+
+.book-controls {
+  background: #fdf6e3;
+  border-top: 2px dashed #2a1a4a26;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px 40px;
+  display: flex;
+}
+
+.page-btn {
+  color: #6a2d9e;
+  font-family: var(--font-ui, "Fredoka", sans-serif);
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all .2s;
+}
+
+.page-btn:hover:not(:disabled) {
+  color: #2a1a4a;
+  background: #6a2d9e14;
+  transform: scale(1.05);
+}
+
+.page-btn:disabled {
+  color: #2a1a4a40;
+  cursor: not-allowed;
+}
+
+.page-indicator {
+  font-family: var(--font-title, "Caveat", cursive);
+  color: #2a1a4a;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.btn-magic {
+  font-family: var(--font-ui, "Fredoka", sans-serif);
+  color: #000;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ffe9a8, #ffc93c);
+  border: none;
+  border-radius: 999px;
+  margin-top: 10px;
+  padding: 16px 42px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: all .25s;
+  box-shadow: 0 8px #a86b12, 0 15px 30px #ffc93c4d, 0 0 50px #ffc93c33;
+}
+
+.btn-magic:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px #a86b12, 0 20px 40px #ffc93c80, 0 0 80px #ffc93c66;
+}
+
+.btn-magic:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px #a86b12;
+}
+
+@media (max-width: 600px) {
+  .story-container {
+    padding: 0 10px;
+  }
+
+  .book-pages {
+    padding: 30px 20px;
+    font-size: 1rem;
+  }
+
+  .book-controls {
+    padding: 15px 20px 25px;
+  }
+
+  .story-title {
+    font-size: 2.2rem;
+  }
+
+  .page-indicator {
+    font-size: 1.3rem;
+  }
+}
+
+/*# sourceMappingURL=src_app_story_story_css_03k5kcy1y-ay9.css.map*/

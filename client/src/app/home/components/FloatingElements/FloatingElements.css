@@ -1,0 +1,96 @@
+.floating-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
+}
+
+/* ===== Butterflies ===== */
+.butterfly {
+  position: absolute;
+  font-size: 1.6rem;
+  animation: butterflyFly 18s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(255, 233, 168, 0.7));
+}
+
+@keyframes butterflyFly {
+  0%   { transform: translate(0, 0) rotate(-15deg) scale(1); }
+  25%  { transform: translate(60px, -40px) rotate(15deg) scale(1.1); }
+  50%  { transform: translate(-30px, -80px) rotate(-10deg) scale(0.95); }
+  75%  { transform: translate(80px, -30px) rotate(20deg) scale(1.05); }
+  100% { transform: translate(0, 0) rotate(-15deg) scale(1); }
+}
+
+/* ===== Balloons ===== */
+.balloon {
+  position: absolute;
+  width: 40px;
+  height: 100px;
+  animation: balloonRise 14s ease-in infinite;
+}
+
+.balloon-body {
+  display: block;
+  width: 40px;
+  height: 50px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.7), var(--balloon-color) 60%);
+  box-shadow: 0 0 20px var(--balloon-color), inset -6px -8px 16px rgba(0,0,0,0.25);
+}
+
+.balloon-string {
+  display: block;
+  width: 1px;
+  height: 50px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes balloonRise {
+  0%   { transform: translateY(100vh) rotate(-5deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(-120vh) rotate(5deg); opacity: 0; }
+}
+
+/* ===== Leaves ===== */
+.leaf {
+  position: absolute;
+  top: -20px;
+  font-size: 1.4rem;
+  animation: leafFall 12s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes leafFall {
+  0%   { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.9; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+/* ===== Shooting stars ===== */
+.shooting-star {
+  position: absolute;
+  top: 15%;
+  left: -120px;
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fff, #ffe9a8);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px #fff);
+  animation: shoot 9s linear infinite;
+}
+
+.shooting-star--2 {
+  top: 40%;
+  animation-delay: 4.5s;
+  animation-duration: 11s;
+}
+
+@keyframes shoot {
+  0%   { transform: translate(0, 0) rotate(20deg); opacity: 0; }
+  10%  { opacity: 1; }
+  40%  { transform: translate(120vw, 40vh) rotate(20deg); opacity: 0; }
+  100% { opacity: 0; }
+}
